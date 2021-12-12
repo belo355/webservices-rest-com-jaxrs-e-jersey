@@ -1,4 +1,4 @@
-package br.com.alura.loja;
+package br.com.alura.loja.api;
 
 import br.com.alura.loja.dao.CarrinhoDAO;
 import br.com.alura.loja.modelo.Carrinho;

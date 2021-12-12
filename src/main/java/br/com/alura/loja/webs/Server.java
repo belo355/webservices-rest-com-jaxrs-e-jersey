@@ -9,11 +9,16 @@ import java.net.URI;
 
 public class Server {
     public static void main(String[] args) throws IOException {
-        ResourceConfig config = new ResourceConfig().packages("br.com.alura.loja"); 
-        URI uri = URI.create("http://localhost:8080/");
-        HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
+        HttpServer server = initizalizedServer();
         System.out.print("server up!");
         System.in.read();
         server.stop();
+    }
+
+    public static HttpServer initizalizedServer() {
+        return GrizzlyHttpServerFactory.createHttpServer(
+                URI.create("http://localhost:8080/"),
+                new ResourceConfig().packages("br.com.alura.loja")
+        );
     }
 }
