@@ -37,7 +37,7 @@ public class ClientTest {
     public void should_conect_to_web_service_endpoint_carrinhos() {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://localhost:8080");
-        String resp = target.path("/carrinhos").request().get(String.class);
+        String resp = target.path("/carrinhos/1").request().get(String.class);
         Assert.assertTrue(resp.contains( "Vergueiro 3185"));
     }
 
@@ -45,10 +45,11 @@ public class ClientTest {
     public void should_conect_to_web_service_endpoint_projetos() {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://localhost:8080");
-        String resp = target.path("/projetos").request().get(String.class);
+        String resp = target.path("/projetos/1").request().get(String.class);
         Projeto projeto = (Projeto) new XStream().fromXML(resp);
-
         Assert.assertEquals("Minha loja", projeto.getNome());
+        Assert.assertEquals(2014, projeto.getAnoDeInicio());
     }
+    
 }
                                                        

@@ -22,7 +22,7 @@ public class ProjetoDAO {
         banco.put(id, projeto);
     }
 
-    public Projeto busca(Long id) {
+    public Projeto busca(long id) {
         return banco.get(id);
     }
 
