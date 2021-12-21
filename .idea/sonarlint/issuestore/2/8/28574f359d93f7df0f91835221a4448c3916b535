@@ -1,0 +1,17 @@
+
+J
+java:S37405"/Provide the parametrized type for this generic.(¡¥šşÿÿÿÿ
+J
+java:S3740C"/Provide the parametrized type for this generic.(¡¥šşÿÿÿÿ
+_
+java:S1128"DRemove this unused import 'javax.xml.bind.annotation.XmlAccessType'.(¶ûª¤üÿÿÿÿ
+a
+java:S1128"FRemove this unused import 'javax.xml.bind.annotation.XmlAccessorType'.(ñœÜ…ûÿÿÿÿ
+[
+java:S1128	"ERemove this unused import 'javax.xml.bind.annotation.XmlRootElement'.(Òóå†
+G
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§
+E
+java:S1068"*Remove this unused "cidade" private field.(øË£Ïÿÿÿÿÿ
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿê¶üÿÿÿÿ

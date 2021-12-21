@@ -1,6 +1,7 @@
 package br.com.alura.loja.webs;
 
 import br.com.alura.loja.modelo.Projeto;
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
@@ -26,7 +27,7 @@ public class ClientTest {
         server.stop(); 
     }
     @Test
-    public void should_conect_to_web_service() {
+    public void shouldConectToWebService() {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://www.mocky.io");
         String resp = target.path("/v2/52aaf5deee7ba8c70329fb7d").request().get(String.class);
@@ -34,7 +35,7 @@ public class ClientTest {
     }
 
     @Test
-    public void should_conect_to_web_service_endpoint_carrinhos() {
+    public void shouldConectToWebServiceEndpointCarrinhos() {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://localhost:8080");
         String resp = target.path("/carrinhos/1").request().get(String.class);
@@ -42,7 +43,7 @@ public class ClientTest {
     }
 
     @Test
-    public void should_conect_to_web_service_endpoint_projetos() {
+    public void shouldConectToWebServiceEndpointProjetosAndGetProjectsintoXML() {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://localhost:8080");
         String resp = target.path("/projetos/1").request().get(String.class);
@@ -50,6 +51,16 @@ public class ClientTest {
         Assert.assertEquals("Minha loja", projeto.getNome());
         Assert.assertEquals(2014, projeto.getAnoDeInicio());
     }
-    
+
+    @Test
+    public void shouldConectToWebServiceEndpointProjetosAndGeProjectsIntoJSON() {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target("http://localhost:8080");
+        String resp = target.path("/projetos/1/json").request().get(String.class);
+        Projeto projeto = new Gson().fromJson(resp, Projeto.class);
+        Assert.assertEquals("Minha loja", projeto.getNome());
+        Assert.assertEquals(2014, projeto.getAnoDeInicio());
+    }
+
 }
                                                        

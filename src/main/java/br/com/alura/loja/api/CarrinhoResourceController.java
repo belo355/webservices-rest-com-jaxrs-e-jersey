@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("carrinhos")
-public class CarrinhoResource {
+public class CarrinhoResourceController {
 
     @Path("/{id}")
     @GET

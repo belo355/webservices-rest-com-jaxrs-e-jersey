@@ -30,4 +30,9 @@ public class ProjetoDAO {
         return banco.remove(id);
     }
 
+    public String add(Projeto project) {
+        banco.put(3L, new Projeto(project.getId(), project.getNome(), project.getAnoDeInicio()));
+        return "projeto adicionado!";
+    }
+
 }
